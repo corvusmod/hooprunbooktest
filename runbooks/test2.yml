@@ -1,9 +1,0 @@
-name: test
-description: Testing runbooks
-steps:
-  - name: Get machine name
-    action: shell
-    command: uname -a
-  - name: list files
-    action: shell
-    command: ls -la
