@@ -1,0 +1,6 @@
+name: test_runbook
+description: A test runbook
+steps:
+  - name: Test step
+    action: shell
+    command: echo "This is a test"
