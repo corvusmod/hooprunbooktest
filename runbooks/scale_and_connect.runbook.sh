@@ -27,6 +27,7 @@ scale_service() {
 
 # Function to connect to the database
 connect_to_database() {
+    docker service ls
     PGPASSWORD=$PASSWORD psql -h "$HOST" -p "$PORT" -U "$USER" -d "$DATABASE" -c "SELECT version();" >/dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "Connected to the database successfully."
