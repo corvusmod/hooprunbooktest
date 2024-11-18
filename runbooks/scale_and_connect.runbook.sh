@@ -5,7 +5,7 @@ SERVICE_NAME="postgres_database_jump_sidecar"
 DATABASE="postgres"
 USER="postgres"
 PASSWORD="postgres"
-HOST="localhost"
+HOST="pstest" #This is manager hostname
 PORT=9051
 
 # Function to get the number of replicas for a Docker service
