@@ -10,7 +10,7 @@ PORT=9051
 
 # Function to get the number of replicas for a Docker service
 get_service_replicas() {
-    docker service ps "$SERVICE_NAME" --filter "desired-state=running" --format '{{.Name}}' | wc -l 2>/dev/null
+    docker service ps "$SERVICE_NAME" --filter "desired-state=running" |grep $SERVICE_NAME | wc -l 2>/dev/null
 }
 
 # Function to scale a Docker service
