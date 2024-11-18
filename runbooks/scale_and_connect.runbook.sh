@@ -15,6 +15,7 @@ get_service_replicas() {
 
 # Function to scale a Docker service
 scale_service() {
+    echo "Scaling service $SERVICE_NAME to $1 replicas..."
     local replicas=$1
     docker service scale "$SERVICE_NAME=$replicas" >/dev/null 2>&1
     if [ $? -eq 0 ]; then
