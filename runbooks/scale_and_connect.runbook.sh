@@ -27,12 +27,14 @@ scale_service() {
 
 # Function to connect to the database
 connect_to_database() {
-    docker service ls
+    echo "Connecting using: -h $HOST -p $PORT -U $USER -d $DATABASE and password $PASSWORD"
     PGPASSWORD=$PASSWORD psql -h "$HOST" -p "$PORT" -U "$USER" -d "$DATABASE" -c "SELECT version();" >/dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "Connected to the database successfully."
     else
         echo "Failed to connect to the database."
+        ret_code=$?
+        printf 'Error in execing gosu, %d\n' $ret_code
         exit 1
     fi
 }
